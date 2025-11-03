@@ -1,0 +1,32 @@
+services:
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    working_dir: /workspace/apps/web
+    volumes:
+      - .:/workspace
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./apps/web/.env.local
+    tty: true
+    stdin_open: true
+    depends_on:
+      - api
+
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    working_dir: /workspace/apps/api
+    volumes:
+      - .:/workspace
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./apps/api/.env.local
+    tty: true
+    stdin_open: true
