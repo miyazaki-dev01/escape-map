@@ -3,7 +3,7 @@ services:
     container_name: web
     build:
       context: .
-      dockerfile: apps/web/Dockerfile
+      dockerfile: apps/web/Dockerfile.dev
     working_dir: /workspace/apps/web
     volumes:
       - .:/workspace
@@ -20,7 +20,7 @@ services:
     container_name: api
     build:
       context: .
-      dockerfile: apps/api/Dockerfile
+      dockerfile: apps/api/Dockerfile.dev
     working_dir: /workspace/apps/api
     volumes:
       - .:/workspace
