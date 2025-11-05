@@ -12,19 +12,13 @@ export default function Home() {
   const [res, setRes] = useState<ApiResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const apiBase =
-    process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8080";
-
   const handleClick = async () => {
     setLoading(true);
     setError(null);
     setRes(null);
 
     try {
-      const r = await fetch(`${apiBase}/test`, {
-        method: "GET",
-        cache: "no-store",
-      });
+      const r = await fetch("/api/test", { method: "GET", cache: "no-store" });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const json = (await r.json()) as ApiResponse;
       setRes(json);
