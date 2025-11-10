@@ -16,7 +16,7 @@ func main() {
 	r.Use(gin.Recovery())
 
   r.GET("/test", func(c *gin.Context) {
-    c.JSON(200, gin.H{"message": "Hello, World!"})
+    c.JSON(200, gin.H{"message": "Hello World!"})
   })
 
   r.Run("0.0.0.0:" + port)
