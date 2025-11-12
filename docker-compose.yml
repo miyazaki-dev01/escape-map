@@ -1,6 +1,6 @@
 services:
   web:
-    container_name: web
+    container_name: escape-map-web
     build:
       context: .
       dockerfile: apps/web/Dockerfile.dev
@@ -17,7 +17,7 @@ services:
       - api
 
   api:
-    container_name: api
+    container_name: escape-map-api
     build:
       context: .
       dockerfile: apps/api/Dockerfile.dev
